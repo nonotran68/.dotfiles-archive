@@ -52,7 +52,7 @@ fi
 fpath=($HOME/.dotfiles/zsh_plugins/zsh-completions/src $fpath)
 source $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.dotfiles/zsh_themes/powerlevel10k.zsh-theme
+source $HOME/.dotfiles/zsh_themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
