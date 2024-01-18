@@ -12,6 +12,18 @@ SAVEHIST=10000
 setopt autocd
 bindkey -e
 
+autoload -U compinit; compinit -D $HOME/.dotfiles
+
+export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
+
+# -------------Alias-------------
+
+alias ls="lsd"
+alias ll="ls -la"
+alias nvf='nvim $(fzf)'
+
+
+
 # Zsh-autocomplete
 source $HOME/.dotfiles/zsh_plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
@@ -52,7 +64,10 @@ fi
 fpath=($HOME/.dotfiles/zsh_plugins/zsh-completions/src $fpath)
 source $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.dotfiles/zsh_plugins/zsh-z/zsh-z.plugin.zsh
+# Fzf-tab
+# source $HOME/.dotfiles/zsh_plugins/fzf-tab/fzf-tab.plugin.zsh
+# Source theme
 source $HOME/.dotfiles/zsh_themes/powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

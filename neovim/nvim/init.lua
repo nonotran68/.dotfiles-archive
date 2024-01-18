@@ -91,7 +91,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -117,7 +117,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -203,7 +203,7 @@ require('lazy').setup({
   -- },
   {
     "folke/tokyonight.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     transparent = true,
     config = function()
@@ -213,8 +213,8 @@ require('lazy').setup({
     styles = {
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = "transparent", -- style for sidebars, see below
-      floats = "transparent", -- style for floating windows
-  }
+      floats = "transparent",   -- style for floating windows
+    }
   },
   'xiyaowong/transparent.nvim',
 
@@ -274,11 +274,11 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  --Add Tab-bar 
+  --Add Tab-bar
   {
     'romgrk/barbar.nvim',
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
     init = function() vim.g.barbar_auto_setup = false end,
@@ -288,14 +288,14 @@ require('lazy').setup({
       -- insert_at_start = true,
       -- …etc.
       sidebar_filetypes = {
-      -- Use the default values: {event = 'BufWinLeave', text = nil}
-      NvimTree = true,
-      -- Or, specify the text used for the offset:
-      undotree = {text = 'undotree'},
-      -- Or, specify the event which the sidebar executes when leaving:
-      ['neo-tree'] = {event = 'BufWipeout'},
-      -- Or, specify both
-      Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
+        -- Use the default values: {event = 'BufWinLeave', text = nil}
+        NvimTree = true,
+        -- Or, specify the text used for the offset:
+        undotree = { text = 'undotree' },
+        -- Or, specify the event which the sidebar executes when leaving:
+        ['neo-tree'] = { event = 'BufWipeout' },
+        -- Or, specify both
+        Outline = { event = 'BufWinLeave', text = 'symbols-outline' },
       },
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
@@ -304,11 +304,11 @@ require('lazy').setup({
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
   },
-  --Add autopairs 
+  --Add autopairs
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
@@ -318,6 +318,13 @@ require('lazy').setup({
   'voldikss/vim-floaterm',
   --Github copilot
   -- 'github/copilot.vim',
+  
+  --Setting up NVIM dap
+  "mfussenegger/nvim-dap",
+  "jay-babu/mason-nvim-dap.nvim",
+  'rcarriga/nvim-dap-ui',
+  --
+  --
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -331,37 +338,24 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
-},{})
+}, {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
-  -- disable netrw at the very start of your init.lua
-  vim.g.loaded_netrw = 1
-  vim.g.loaded_netrwPlugin = 1
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
-  -- set termguicolors to enable highlight groups
-  vim.opt.termguicolors = true
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
 
-  -- empty setup using defaults
-  -- require("nvim-tree").setup()
+-- empty setup using defaults
+-- require("nvim-tree").setup()
 
-  -- OR setup with some options
-  require("nvim-tree").setup({
-    sort = {
-      sorter = "case_sensitive",
-    },
-    view = {
-      width = 30,
-    },
-    renderer = {
-      group_empty = true,
-    },
-    filters = {
-      dotfiles = true,
-    },
-  })
+-- OR setup with some options
+
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -373,9 +367,9 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 --Add color for linenumber
-vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#51B3EC' })
-vim.api.nvim_set_hl(0, 'LineNr', { fg='yellow', bold=true })
-vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#FB508F' })
+vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC' })
+vim.api.nvim_set_hl(0, 'LineNr', { fg = 'yellow', bold = true })
+vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F' })
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -408,15 +402,15 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.api.nvim_set_hl(0, "Cursor", {fg='#cc9900', bg='#339966'})
-vim.api.nvim_set_hl(0, "CursorReset", {fg='white', bg='white'})
+vim.api.nvim_set_hl(0, "Cursor", { fg = '#cc9900', bg = '#339966' })
+vim.api.nvim_set_hl(0, "CursorReset", { fg = 'white', bg = 'white' })
 
-vim.o.guicursor="n-v-c-sm:block-Cursor,i-ci-ve:ver25-blinkon1-Cursor,r-cr-o:hor20-Cursor"  
+vim.o.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-blinkon1-Cursor,r-cr-o:hor20-Cursor"
 -- vim.opt.guicursor = 'a:ver25-CursorReset,a:blinkon100'
 
 --Settings for code-folding
 vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
@@ -429,22 +423,48 @@ vim.o.foldenable = true
 -- vim.keymap.set('n', 'l', 'lzz')
 
 --Mappings for Vim-floaterm
-vim.keymap.set('n', "<F12>", ":FloatermToggle --height=0.7 --width=0.4 --wintype=float --position=botright --autoclose=0<CR>", { silent = true })
-vim.keymap.set('t', "<F12>", "<C-\\><C-n>:FloatermToggle<CR>", { silent = true })
+vim.keymap.set('n', "<F12>",
+  ":FloatermToggle<CR>", { silent = true })
+vim.keymap.set('t', "<F12>", "<C-\\><C-n>:FloatermKill<CR>", { silent = true })
 
 --Set Terminal always open in terminal (insert) mode
 vim.api.nvim_create_autocmd(
   "TermOpen",
   {
-    pattern = {"*"},
+    pattern = { "*" },
     command = "startinsert",
   }
 )
---Vim-Floaterm 'Compile n Run'
-vim.keymap.set('n', "<F5>", ":w | FloatermNew --height=0.9 --width=0.5 --autoclose=0 --position=topright g++ -O2 -Wall % -o %:r.out && ./%:r.out<CR>", {silent = true, desc = "Vim-Floaterm C++ Compile and Run"})
+local compilenrun = vim.api.nvim_create_augroup('CompilenRun', {})
+vim.api.nvim_create_autocmd({"BufRead", "BufWritePost"}, {
+  pattern = { "*.cpp", "*.cc" },
+  callback = function()
+    --Self-made 'Compile and Run' terminal
+    vim.keymap.set('n', 'ga',
+          ":w | botright vsplit | terminal if g++ -Wall -Wextra -Wno-unused-result -D LOCAL -O2 -std=c++20 % -o %:r.out; then echo '----[[ FINISHED ]]----'; else echo '----[[ FAILED!!! ]]----'; fi; time ./%:r.out && rm %:r.out<CR>",
+      { silent = true, desc = "C++ Compile and Run" })
+    vim.keymap.set('n', 'gA',
+          ":w | botright vsplit | terminal g++ -Wall -Wextra -Wno-unused-result -D LOCAL -O2 -std=c++20 % -o %:r.out<CR>", {silent = true, desc = "C++ Compile" })
+    --Vim-Floaterm 'Compile n Run'
+    vim.keymap.set('n', "<F5>",
+      ":w | FloatermNew --height=0.9 --width=0.6 --autoclose=0 --position=topright g++ -Wall -Wextra -Wno-unused-result -D LOCAL -O2  -std=c++20 % -o %:r.out && time ./%:r.out<CR>",
+      { silent = true, desc = "Vim-Floaterm C++ Compile and Run" })
+  end,
+  group = compilenrun,
+})
+-- if g++ hello.cpp; then echo "done"; else echo "failed"; fi;
+vim.api.nvim_create_autocmd({"BufRead", "BufWritePost"}, {
+  pattern = { "*.py" },
+  callback = function()
+    vim.keymap.set('n', 'ga', ":w | botright vsplit | terminal python %<CR>", { silent = true, desc = "Python" })
+  end,
+  group = compilenrun,
+}
+)
 
---Self-made 'Compile and Run' terminal
-vim.keymap.set('n', 'ga', ":w | vertical botright split | terminal g++ -O2 -Wall % -o %:r.out && ./%:r.out<CR>", {silent = true, desc = "C++ Compile and Run"})
+
+
+
 
 
 -- Keymaps for better default experience
@@ -488,6 +508,21 @@ require('telescope').setup {
     },
   },
 }
+-- Configure NvimTree
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -705,7 +740,7 @@ local servers = {
   clangd = {},
   -- gopls = {},
   pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
@@ -728,7 +763,9 @@ local servers = {
 -- )
 
 -- Setup neovim lua configuration
-require('neodev').setup()
+require('neodev').setup({
+  library = { plugins = { "nvim-dap-ui" }, types = true },
+})
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -803,6 +840,26 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+require ('mason-nvim-dap').setup({
+    ensure_installed = {'codelldb', 'python'},
+    handlers = {}, -- sets up dap in the predefined manner
+})
+
+require("dapui").setup()
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
